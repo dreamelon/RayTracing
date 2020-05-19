@@ -1,6 +1,13 @@
 #pragma once
 #include "Vector.h"
 #include "Ray.h"
+struct Hit_record {
+	float t;
+	Vector3f p;
+	Vector3f normal;
+};
+
 class Object {
-	virtual bool intersect(const Ray&, float, uint32_t, Vector2f&) const = 0;
+public:
+	virtual bool intersect(const Ray&, float tmin, float tmax, Hit_record&) const = 0;
 };
