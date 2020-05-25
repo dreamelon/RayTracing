@@ -30,7 +30,7 @@
     <ClInclude Include="Sphere.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="HitableList.h">
+    <ClInclude Include="ObjectList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClCompile Include="Sphere.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="HitableList.cpp">
+    <ClCompile Include="ObjectList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
