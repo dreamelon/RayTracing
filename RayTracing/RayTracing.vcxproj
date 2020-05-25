@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="ObjectList.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
