@@ -51,6 +51,9 @@ public:
 		x += v.x, y += v.y, z += v.z;
 		return *this;
 	}
+	float length() const {
+		return sqrt(x * x + y * y + z * z);
+	}
 	friend Vector3f operator*(const float& r, const Vector3f& v)
 	{
 		return Vector3f(v.x * r, v.y * r, v.z * r);
