@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "ObjectList.h"
 
-bool ObjectList::intersect(const Ray& ray, float tmin, float tmax, Hit_record& rec) const
+bool ObjectList::intersect(const Ray& ray, double tmin, double tmax, Hit_record& rec) const
 {
 	Hit_record temp_rec;
 	bool hit_anything = false;

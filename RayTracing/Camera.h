@@ -11,7 +11,7 @@ public:
 		Vector3f Vertical = Vector3f(0, 2, 0),Vector3f Horizontal = Vector3f(4, 0, 0)) :
 		pos(Pos), viewPlane_Orig(ViewPlane_Orig), vertical(Vertical), horizontal(Horizontal){}
 
-	Ray GetRay(float u, float v) {
+	Ray GetRay(double u, double v) {
 		return Ray(pos, viewPlane_Orig + u * horizontal + v * vertical);
 	}
 };

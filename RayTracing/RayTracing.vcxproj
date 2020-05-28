@@ -157,6 +157,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="Tools.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>

@@ -11,21 +11,21 @@ public:
 		, y(0)
 		, z(0)
 	{}
-	Vector3f(float xx)
+	Vector3f(double xx)
 		: x(xx)
 		, y(xx)
 		, z(xx)
 	{}
-	Vector3f(float xx, float yy, float zz)
+	Vector3f(double xx, double yy, double zz)
 		: x(xx)
 		, y(yy)
 		, z(zz)
 	{}
-	Vector3f operator*(const float& r) const
+	Vector3f operator*(const double& r) const
 	{
 		return Vector3f(x * r, y * r, z * r);
 	}
-	Vector3f operator/(const float& r) const
+	Vector3f operator/(const double& r) const
 	{
 		return Vector3f(x / r, y / r, z / r);
 	}
@@ -51,10 +51,10 @@ public:
 		x += v.x, y += v.y, z += v.z;
 		return *this;
 	}
-	float length() const {
+	double length() const {
 		return sqrt(x * x + y * y + z * z);
 	}
-	friend Vector3f operator*(const float& r, const Vector3f& v)
+	friend Vector3f operator*(const double& r, const Vector3f& v)
 	{
 		return Vector3f(v.x * r, v.y * r, v.z * r);
 	}
@@ -62,7 +62,7 @@ public:
 	{
 		return os << v.x << ", " << v.y << ", " << v.z;
 	}
-	float x, y, z;
+	double x, y, z;
 };
 
 class Vector2f
@@ -72,15 +72,15 @@ public:
 		: x(0)
 		, y(0)
 	{}
-	Vector2f(float xx)
+	Vector2f(double xx)
 		: x(xx)
 		, y(xx)
 	{}
-	Vector2f(float xx, float yy)
+	Vector2f(double xx, double yy)
 		: x(xx)
 		, y(yy)
 	{}
-	Vector2f operator*(const float& r) const
+	Vector2f operator*(const double& r) const
 	{
 		return Vector2f(x * r, y * r);
 	}
@@ -88,27 +88,27 @@ public:
 	{
 		return Vector2f(x + v.x, y + v.y);
 	}
-	float x, y;
+	double x, y;
 };
 
-inline Vector3f lerp(const Vector3f& a, const Vector3f& b, const float& t)
+inline Vector3f lerp(const Vector3f& a, const Vector3f& b, const double& t)
 {
 	return a * (1 - t) + b * t;
 }
 
 inline Vector3f normalize(const Vector3f& v)
 {
-	float mag2 = v.x * v.x + v.y * v.y + v.z * v.z;
+	double mag2 = v.x * v.x + v.y * v.y + v.z * v.z;
 	if (mag2 > 0)
 	{
-		float invMag = 1 / sqrtf(mag2);
+		double invMag = 1 / sqrt(mag2);
 		return Vector3f(v.x * invMag, v.y * invMag, v.z * invMag);
 	}
 
 	return v;
 }
 
-inline float dotProduct(const Vector3f& a, const Vector3f& b)
+inline double dotProduct(const Vector3f& a, const Vector3f& b)
 {
 	return a.x * b.x + a.y * b.y + a.z * b.z;
 }

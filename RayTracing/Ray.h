@@ -9,8 +9,8 @@ public:
 		const Vector3f& Orig() const { return orig; }
 	    Vector3f Dir() { return dir; }
 		const Vector3f& Dir() const { return dir; }
-		Vector3f Dest(float t) { return orig + dir * t; }
-		const Vector3f Dest(float t) const { return orig + dir * t; }
+		Vector3f Dest(double t) { return orig + dir * t; }
+		const Vector3f Dest(double t) const { return orig + dir * t; }
 private:
 	Vector3f orig;
 	Vector3f dir;
