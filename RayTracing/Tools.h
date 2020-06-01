@@ -13,6 +13,7 @@ inline double degrees_to_radians(double degrees) {
 	return degrees * PI / 180;
 }
 
+//随机数
 inline double random_double() {
 	return rand() / (RAND_MAX + 1.);
 }
@@ -27,3 +28,36 @@ inline double random_double(double min, double max) {
 //	static std::mt19937 generator;
 //	return generator(distribution);
 //}
+
+
+//球内采样
+inline Vector3f random_unit_vector() {
+	double z = random_double(-1, 1);
+	double theta = random_double(0, 2 * PI);
+	double r = sqrt(1 - z * z);
+
+	return Vector3f(r * cos(theta), r * sin(theta), z);
+}
+//与1等价
+inline Vector3f random_unit_vector2() {
+	double theta = acos(1 - 2 * random_double(0, 1));
+	double phi = random_double(0, 2 * PI);
+
+	return Vector3f(sin(theta) * cos(phi), sin(theta) * sin(phi), cos(theta));
+}
+
+inline Vector3f random_unit_vector3() {
+	double theta = random_double(0, 2 * PI);
+	double phi = random_double(0, 2 * PI);
+
+	return Vector3f(sin(theta) * cos(phi), sin(theta) * sin(phi), cos(theta));
+}
+
+inline Vector3f random_in_hemishpere(const Vector3f& normal) {
+	Vector3f in_unit_sphere = random_in_unit_sphere();
+	if (dotProduct(in_unit_sphere, normal) > 0.)
+		return in_unit_sphere;
+	else
+		return -in_unit_sphere;
+}
+
