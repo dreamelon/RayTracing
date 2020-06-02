@@ -19,5 +19,5 @@ struct Hit_record {
 
 class Object {
 public:
-	virtual bool intersect(const Ray&, double tmin, double tmax, Hit_record&) const = 0;
+	virtual bool Intersect(const Ray&, double tmin, double tmax, Hit_record&) const = 0;
 };

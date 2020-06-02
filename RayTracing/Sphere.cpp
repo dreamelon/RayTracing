@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Sphere.h"
 
-bool Sphere::intersect(const Ray& r, double tmin, double tmax, Hit_record& hit_record) const {
+bool Sphere::Intersect(const Ray& r, double tmin, double tmax, Hit_record& hit_record) const {
 	Vector3f oc = r.Orig() - center;
 	double a = dotProduct(r.Dir(), r.Dir());
 	double b = 2.f * dotProduct(oc, r.Dir());

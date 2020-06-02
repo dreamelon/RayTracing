@@ -1,10 +1,14 @@
 #pragma once
 #include "Object.h"
+#include <vector>
 
 class ObjectList {
-	Object** list;
-	int list_size;
+	std::vector<std::shared_ptr<Object>> objects;
+
 public:
-	ObjectList(Object** l, int n) : list(l), list_size(n){}
-	bool intersect(const Ray&, double tmin, double tmax, Hit_record&) const;
+	ObjectList() {}
+	ObjectList(std::vector<std::shared_ptr<Object>> objs) : objects(objs){}
+	void Add(std::shared_ptr<Object> object) { objects.push_back(object); }
+	void Clear() { objects.clear(); }
+	bool Intersect(const Ray&, double tmin, double tmax, Hit_record&) const;
 };

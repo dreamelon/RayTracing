@@ -5,6 +5,6 @@ class Sphere : public Object {
 	double radius;
 	std::shared_ptr<Material> mat_ptr;
 public:
-	bool intersect(const Ray&, double tmin, double tmax, Hit_record&) const override;
+	bool Intersect(const Ray&, double tmin, double tmax, Hit_record&) const override;
 	Sphere(const Vector3f& v, double r, std::shared_ptr<Material> ptr) : center(v), radius(r), mat_ptr(ptr){}
 };

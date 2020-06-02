@@ -29,8 +29,18 @@ inline double random_double(double min, double max) {
 //	return generator(distribution);
 //}
 
-
 //球内采样
+inline Vector3f random_in_unit_sphere() {
+	Vector3f p;
+	do {
+		// rand/RAND_MAX范围[0,1), 映射到[-1,1)
+		p = 2.f * Vector3f(random_double(), random_double(), random_double()) - Vector3f(1);
+	} while (dotProduct(p, p) > 1.f);
+
+	return p;
+}
+
+
 inline Vector3f random_unit_vector() {
 	double z = random_double(-1, 1);
 	double theta = random_double(0, 2 * PI);
