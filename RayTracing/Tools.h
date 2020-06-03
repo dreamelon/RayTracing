@@ -40,7 +40,6 @@ inline Vector3f random_in_unit_sphere() {
 	return p;
 }
 
-
 inline Vector3f random_unit_vector() {
 	double z = random_double(-1, 1);
 	double theta = random_double(0, 2 * PI);
