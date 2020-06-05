@@ -12,15 +12,17 @@ bool Sphere::Intersect(const Ray& r, double tmin, double tmax, Hit_record& hit_r
 		if (result < tmax && result > tmin) {
 			hit_record.t = result;
 			hit_record.pos = r.Dest(result);
-			hit_record.normal = (hit_record.pos - center) / radius;
 			hit_record.mat_ptr = mat_ptr;
+			Vector3f outward_normal = (hit_record.pos - center) / radius;
+			hit_record.SetFaceNormal(r, outward_normal);
 			return true;
 		}
 		result = (-b + sqrt(discriminant)) / (2 * a);
 		if (result < tmax && result > tmin) {
 			hit_record.t = result;
 			hit_record.pos = r.Dest(result);
-			hit_record.normal = (hit_record.pos - center) / radius;
+			Vector3f outward_normal = (hit_record.pos - center) / radius;
+			hit_record.SetFaceNormal(r, outward_normal);
 			hit_record.mat_ptr = mat_ptr;
 			return true;
 		}
