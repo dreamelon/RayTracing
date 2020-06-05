@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Dielectric.h" />
     <ClInclude Include="Diffuse.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="ObjectList.h" />
