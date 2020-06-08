@@ -15,17 +15,15 @@ public:
 
 	virtual bool scatter(const Ray& r_in, const Hit_record& rec, Color& attenuation, Ray& scattered) const {
 		attenuation = Color(1);
-		double etai_over_etat;
 		//根据正反面调整折射率
-		if (rec.front_face) {
-			etai_over_etat = 1. / ref_idx;
-		}
-		else {
-			etai_over_etat = ref_idx;
-		}
+		double etai_over_etat = rec.front_face ? 1. / ref_idx : ref_idx;
 
 		Vector3f unit_dir = normalize(r_in.Dir());
-		Vector3f refract_dir = Refract(r_in.Dir(), rec.normal, etai_over_etat);
+
+		double cos_theta = std::min(dotProduct(-unit_dir, rec.normal), 1.);
+		double sin_theta = sqrt(1. - cos_theta);
+
+		Vector3f refract_dir = Refract(normalize(r_in.Dir()), rec.normal, etai_over_etat);
 
 		return true;
 	}

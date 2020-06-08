@@ -12,6 +12,6 @@ public :
 		Vector3f scatter_dir = normalize(in.Dir() -   2 * dotProduct(in.Dir(), rec.normal) * rec.normal);
 		scattered = Ray(rec.pos,  scatter_dir + fuzz * random_in_unit_sphere()) ;
 		attenuation = albedo;
-		return dotProduct(scatter_dir, rec.normal) > 0;
+		return dotProduct(scattered.Dir(), rec.normal) > 0;
 	}
 };
