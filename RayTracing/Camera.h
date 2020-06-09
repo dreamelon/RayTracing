@@ -7,7 +7,7 @@ class Camera {
 	Vector3f vertical;
 	Vector3f horizontal;
 public:
-	Camera(Vector3f Pos = Vector3f(0, 0, 0), Vector3f ViewPlane_Orig = Vector3f(-2, -1, -1),
+	Camera(double fov, double aspect,  Vector3f LookAt, Vector3f Pos = Vector3f(0, 0, 0),  Vector3f ViewPlane_Orig = Vector3f(-2, -1, -1),
 		Vector3f Vertical = Vector3f(0, 2, 0),Vector3f Horizontal = Vector3f(4, 0, 0)) :
 		pos(Pos), viewPlane_Orig(ViewPlane_Orig), vertical(Vertical), horizontal(Horizontal){}
 
