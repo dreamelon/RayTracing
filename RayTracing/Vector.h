@@ -113,6 +113,11 @@ inline double dotProduct(const Vector3f& a, const Vector3f& b)
 	return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
+inline double dotProduct(const Vector2f& a, const Vector2f& b)
+{
+	return a.x * b.x + a.y * b.y;
+}
+
 inline Vector3f crossProduct(const Vector3f& a, const Vector3f& b)
 {
 	return Vector3f(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
