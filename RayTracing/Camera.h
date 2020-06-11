@@ -23,15 +23,14 @@ public:
 	{
 		//焦距focus_dist
 
-
 		double theta = degrees_to_radians(fov / 2);
 		//单位成像平面, z = -1;
 		double height = 2 * tan(theta);
 		double width = height * aspect;
 
-		Vector3f w = normalize(pos - LookAt);
-		Vector3f u = normalize(crossProduct(Up, w));
-		Vector3f v = crossProduct(w, u);
+		w = normalize(Pos - LookAt);
+		u = normalize(crossProduct(Up, w));
+		v = crossProduct(w, u);
 
 		pos = Pos;
 		horizontal = focus_dist * u * width;
@@ -46,6 +45,10 @@ public:
 		Vector2f rd = Random_in_unitdisk() * lens_radius;
 		//相机原点，要根据相机坐标系偏移，不能直接用
 		Vector3f offset = u * rd.x + v * rd.y;
+		/*
+		测试不加上focus_dist，只取offset的话结果是一片模糊，可以认为真正模拟了一个透镜，聚焦点随机
+		加上focus_dist可以确保某一距离的物体可以精确成像
+		*/
 		return Ray(pos + offset, viewPlane_Orig + s * horizontal + t * vertical - pos - offset);
 	}
 };
